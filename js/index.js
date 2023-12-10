@@ -7,12 +7,18 @@ const nav_link = _$("nav-link")
 const icon = _$("icon")
 const t_btn1 = _$("btn_1")
 const t_btn2 = _$("btn_2")
+const t_btn3 = _$("btn_3")
+const t_btn4 = _$("btn_4")
 const line_container = _$("line-container")
 const line = _$("line")
 const trait_1 = _$("trait1")
 const trait_2 = _$("trait2")
 const trait_3 = _$("trait3")
 const trait_4 = _$("trait4")
+const trait_5 = _$("trait5")
+const image_container = _$("image-box-container")
+const classement = _$("classement-container")
+const classement2 = _$("classement-container1")
 
 let tab_nav_link = ["Home","Pages","About","Services","Contact"]
 let tab_icon_grid = ["img/facebook.png","img/twitter-xxl.png","img/linkedin.png"]
@@ -99,8 +105,9 @@ const poster_text = (selector, data) => {
     t_div.textContent = data
   }
   
-  const poster = (selector, table1, table2) => {
-    for(let i = 0; i<table1.length ; i++){
+  const poster = (selector, table1, table2,color1,color2,n) => {
+
+    for(let i = 0; i<table1.length - n ; i++){
     let t_div1 = _createElts("div")
     selector.appendChild(t_div1)
     selector.classList.add("line-container-style1")
@@ -116,15 +123,23 @@ const poster_text = (selector, data) => {
       poster_text(t_span1,table1[i])
       t_span1.classList.add("line-place")
       t_span1.classList.add("line-container-text")
+      t_span1.style.color = color1
 
       poster_text(t_span2, table2[i])
       t_span2.classList.add("line-place2")
+      t_span2.style.color = color2
     }
   };
   
-  poster(line_container, tab_text, tab_property)
+  poster(line_container, tab_text, tab_property,"rgba(255, 255, 255, 0.9)","rgba(255, 255, 255, 0.9)",0)
 
   graph(trait_1,0.1,2,"rgba(27, 55, 100, 1)",0)
   graph(trait_2,0.1,2,"rgba(27, 55, 100, 1)",0)
   graph(trait_3,0.1,1,"rgba(27, 55, 100, 1)",0)
   graph(trait_4,0.1,1,"rgba(27, 55, 100, 1)",0)
+  graph(trait_5,0.1,2,"rgba(255, 202, 66, 0.7",0)
+  
+ poster(classement,tab_text,tab_property,"black","black",1)
+ poster(classement2,tab_text,tab_property,"black","black",1)
+ buttonCheck(t_btn3,3,10,"Order Today","transparent","rgba(27, 55, 100, 1)","rgba(255, 202, 66, 1)",0,2,'')
+ buttonCheck(t_btn4,3,10,"Order Today","transparent","rgba(27, 55, 100, 1)","rgba(255, 202, 66, 1)",0,2,'')
